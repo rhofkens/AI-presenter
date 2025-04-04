@@ -41,8 +41,8 @@ READ docs/test-automation-guidelines.md
 #     naming it "<step number>-design-plan.md".
 #   3) PAUSE and ask the human operator to review and confirm the plan. 
 #      DO NOT start coding until the operator explicitly approves.
-#   4) Once approved, implement the step according to the plan. Ensure all acceptance
-#      criteria, code style, and testing requirements are fulfilled before moving on.
+#   4) Once approved, implement the step according to the plan. Use "Boomerang Mode" to split the plan into smaller subtasks and execute these tasks one by one.
+#   5) Ensure all acceptance criteria, code style, and testing requirements are fulfilled before moving on.
 #
 # CURRENT STEPS (REVISED NUMBERING):
 #   01-initialize-spring-boot-backend.md
