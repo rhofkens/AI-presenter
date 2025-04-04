@@ -137,7 +137,7 @@ export function ProjectCard({
             <span
               key={tag.id}
               data-testid={`project-tag-${tag.id}`}
-              className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors duration-200 ${TAG_COLORS[tag.color as keyof typeof TAG_COLORS]}`}
+              className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors duration-200 ${TAG_COLORS[tag.color]}`}
             >
               {tag.name}
             </span>
