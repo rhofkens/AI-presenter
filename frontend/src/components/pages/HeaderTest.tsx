@@ -1,5 +1,6 @@
-import { UserMenu } from "../header/UserMenu"
-import { BreadcrumbNav } from "../header/BreadcrumbNav"
+import React from "react"
+import { BreadcrumbNav } from "@/components/header/BreadcrumbNav"
+import { UserMenu } from "@/components/header/UserMenu"
 
 export const HeaderTest = () => {
   const breadcrumbItems = [
@@ -9,27 +10,13 @@ export const HeaderTest = () => {
   ]
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-8">Header Components Test</h1>
-      
-      <div className="space-y-8">
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Breadcrumb Navigation</h2>
-          <BreadcrumbNav items={breadcrumbItems} />
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold mb-4">User Menu</h2>
-          <UserMenu />
-        </div>
-
-        <div className="mt-12 p-4 bg-gray-100 rounded-lg">
-          <h2 className="text-lg font-semibold mb-4">Header Layout Example</h2>
-          <div className="flex items-center justify-between w-full bg-background p-4 border rounded-lg">
-            <BreadcrumbNav items={breadcrumbItems} />
-            <UserMenu />
-          </div>
-        </div>
+    <div className="p-6">
+      <div className="flex items-center justify-between mb-8 bg-background p-4 rounded-lg shadow">
+        <BreadcrumbNav items={breadcrumbItems} />
+        <UserMenu />
+      </div>
+      <div className="text-sm text-muted-foreground">
+        Test page for header components
       </div>
     </div>
   )

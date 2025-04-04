@@ -1,3 +1,4 @@
+import React from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -5,27 +6,20 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { LogOut, User } from "lucide-react"
 
 export const UserMenu = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-2 px-2 py-1 rounded-lg hover:bg-accent">
+      <DropdownMenuTrigger className="flex items-center gap-2 outline-none">
+        <span className="text-sm">David Hofkens</span>
         <Avatar className="h-8 w-8">
-          <AvatarImage src="https://github.com/shadcn.png" alt="David" />
-          <AvatarFallback>D</AvatarFallback>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>DH</AvatarFallback>
         </Avatar>
-        <span className="text-sm font-medium">David</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48">
-        <DropdownMenuItem>
-          <User className="mr-2 h-4 w-4" />
-          Profile
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
-          Logout
-        </DropdownMenuItem>
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>Logout</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
