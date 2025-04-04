@@ -1,3 +1,5 @@
+import { HealthCheck } from '../HealthCheck';
+
 export function HomePage() {
   return (
     <div className="space-y-8">
@@ -41,6 +43,11 @@ export function HomePage() {
             Coming soon: Translate your presentations into multiple languages automatically.
           </p>
         </div>
+      </section>
+
+      <section className="bg-white shadow-sm rounded-lg p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">System Status</h3>
+        <HealthCheck />
       </section>
     </div>
   );
