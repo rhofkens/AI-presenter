@@ -37,3 +37,6 @@ frontend/tsconfig.tsbuildinfo
 frontend/test-results/
 frontend/playwright-report/
 frontend/.playwright/
+
+### AI Tools ###
+.aider.tags.cache.v4/
