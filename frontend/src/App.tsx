@@ -1,10 +1,10 @@
 import { RootLayout } from './components/layout/RootLayout';
-import { HomePage } from './components/pages/HomePage';
+import { HeaderTest } from './components/pages/HeaderTest';
 
 function App() {
   return (
     <RootLayout>
-      <HomePage />
+      <HeaderTest />
     </RootLayout>
   );
 }
