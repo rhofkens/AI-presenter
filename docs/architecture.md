@@ -21,15 +21,15 @@
   - Packaged into the Spring Boot JAR for a monolithic deployment.
 
 ### 2. Backend
-- **Framework**: Java Spring Boot (Monolithic)
-- **Language**: Java 17+ (recommended)
+- **Framework**: Java Spring Boot (Monolithic). Version must be 3.4.4
+- **Language**: Java 21 
 - **ORM / Persistence**: **JPA** (Hibernate under the hood)
 - **Deployment**: 
   - Packaged as a single JAR that includes both backend and frontend assets.
   - Deployed on [Railway](https://railway.app/) (PaaS environment).
 
 ### 3. Database
-- **DB Engine**: PostgreSQL
+- **DB Engine**: PostgreSQL 17
 - **Schema Migrations**: Flyway  
   - Manages incremental schema updates.
   - Ensures consistent schema across environments.

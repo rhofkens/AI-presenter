@@ -1,65 +1,39 @@
-### IDE ###
-.vscode/
-.idea/
-*.iws
-*.iml
-*.ipr
-
-### Maven ###
+HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### Spring Boot ###
-application-local.yml
-application-local.properties
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-### Node/React ###
-node_modules/
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
 /dist/
-/build/
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### Java ###
-*.class
-*.log
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-hs_err_pid*
-replay_pid*
+### VS Code ###
+.vscode/
 
-### Logs ###
-logs/
-*.log
-log/
-
-### OS ###
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-### Project Specific ###
-# Uploaded PowerPoint files
-uploads/
-# Generated videos
-videos/
-
-### Tool Specific ###
-.aider.tags.cache.v4/
-.aider.chat.history.md
+### Frontend ###
+frontend/tsconfig.tsbuildinfo
+frontend/test-results/
+frontend/playwright-report/
+frontend/.playwright/
