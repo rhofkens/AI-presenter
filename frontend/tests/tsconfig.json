@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "types": ["node", "@playwright/experimental-ct-react"],
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    ".",
+    "../playwright",
+    "../src/**/*"
+  ]
+}
