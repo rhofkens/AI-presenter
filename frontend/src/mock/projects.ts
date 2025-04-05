@@ -17,7 +17,7 @@ export const MOCK_PROJECTS: Project[] = [
       avatar: 'https://i.pravatar.cc/150?u=sarah.j@example.com',
       email: 'sarah.j@example.com'
     },
-    postedTime: '2024-04-01T10:00:00Z',
+    postedTime: new Date(Date.now() - 1000 * 60 * 30).toISOString(), // 30 minutes ago
     template: {
       id: '1',
       type: TEMPLATE_TYPES.BUSINESS,
@@ -43,7 +43,7 @@ export const MOCK_PROJECTS: Project[] = [
       avatar: 'https://i.pravatar.cc/150?u=david.c@example.com',
       email: 'david.c@example.com'
     },
-    postedTime: '2024-03-28T15:30:00Z',
+    postedTime: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(), // 2 hours ago
     template: {
       id: '2',
       type: TEMPLATE_TYPES.EDUCATIONAL,
@@ -69,15 +69,15 @@ export const MOCK_PROJECTS: Project[] = [
       avatar: 'https://i.pravatar.cc/150?u=emma.w@example.com',
       email: 'emma.w@example.com'
     },
-    postedTime: '2024-03-25T09:00:00Z',
+    postedTime: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(), // 1 day ago
     template: {
       id: '3',
       type: TEMPLATE_TYPES.MARKETING,
       slideCount: 8,
       description: 'Product launch template'
     },
-    createdAt: '2024-03-25T09:00:00Z',
-    updatedAt: '2024-03-25T14:20:00Z',
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
     status: 'published'
   },
   {
@@ -95,15 +95,15 @@ export const MOCK_PROJECTS: Project[] = [
       avatar: 'https://i.pravatar.cc/150?u=michael.b@example.com',
       email: 'michael.b@example.com'
     },
-    postedTime: '2024-03-20T11:45:00Z',
+    postedTime: new Date(Date.now() - 1000 * 60 * 60 * 24 * 3).toISOString(), // 3 days ago
     template: {
       id: '4',
       type: TEMPLATE_TYPES.TECHNICAL,
       slideCount: 18,
       description: 'Technical documentation template'
     },
-    createdAt: '2024-03-20T11:45:00Z',
-    updatedAt: '2024-03-21T08:30:00Z',
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 3).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 3).toISOString(),
     status: 'published'
   },
   {
@@ -121,7 +121,7 @@ export const MOCK_PROJECTS: Project[] = [
       avatar: 'https://i.pravatar.cc/150?u=lisa.a@example.com',
       email: 'lisa.a@example.com'
     },
-    postedTime: '2024-03-15T13:20:00Z',
+    postedTime: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString(), // 1 week ago
     template: {
       id: '5',
       type: TEMPLATE_TYPES.BUSINESS,

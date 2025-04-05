@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Project } from "../../types/project"
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
+import { Card, CardFooter, CardHeader } from "../ui/card"
 import { TEMPLATE_TYPES } from "../../constants/templates"
 import { Briefcase, BookOpen, TrendingUp, Code, Layout, PlayCircle, Edit2, Download, Languages, Trash2, ImageOff } from "lucide-react"
-import { TAG_COLORS } from "../../constants/tags"
+import { TAG_COLORS, TagType } from "../../constants/tags"
 import { Button } from "../ui/button"
 import { Skeleton } from "../ui/skeleton"
+import { formatRelativeTime } from "../../lib/utils"
 
 interface ProjectCardProps {
   project: Project;
@@ -137,7 +138,7 @@ export function ProjectCard({
             <span
               key={tag.id}
               data-testid={`project-tag-${tag.id}`}
-              className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors duration-200 ${TAG_COLORS[tag.color]}`}
+              className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors duration-200 ${TAG_COLORS[tag.color as TagType]}`}
             >
               {tag.name}
             </span>
@@ -168,7 +169,7 @@ export function ProjectCard({
           })()}
           <span>{project.template.type}</span>
           <span>•</span>
-          <span>{project.postedTime}</span>
+          <span>{formatRelativeTime(project.postedTime)}</span>
         </div>
       </CardHeader>
 

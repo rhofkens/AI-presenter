@@ -1,4 +1,3 @@
-import React from 'react'
 import { Project } from "../../types/project"
 import { ProjectCard } from "./ProjectCard"
 
@@ -61,13 +60,6 @@ export function ProjectList({
 
   return (
     <div data-testid="project-list" className="space-y-8">
-      {/* Header with total count */}
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-gray-900">
-          Total {projects.length} video{projects.length === 1 ? '' : 's'}
-        </h2>
-      </div>
-
       {/* Grid of project cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
