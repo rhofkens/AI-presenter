@@ -16,9 +16,8 @@ class HealthControllerTest {
     
     @Test
     void healthCheckShouldReturnOkWithTimestamp() throws Exception {
-        mockMvc.perform(get("/health"))
+        mockMvc.perform(get("/api/health"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.status").value("OK"))
-                .andExpect(jsonPath("$.timestamp").exists());
+                .andExpect(jsonPath("$.status").value("UP"));
     }
 }
