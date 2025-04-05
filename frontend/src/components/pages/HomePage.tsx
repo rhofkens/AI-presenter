@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ProjectList } from '../projects/ProjectList';
 import { MOCK_PROJECTS } from '../../mock/projects';
 import { WorkspaceSelector } from '../header/WorkspaceSelector';
 import { CreateButton } from '../header/CreateButton';
 import { SortDropdown } from '../header/SortDropdown';
-import { UserMenu } from '../header/UserMenu';
+import { PageHeader } from '../header/PageHeader';
 
 export function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,14 +27,10 @@ export function HomePage() {
     }
   };
 
+  const navigate = useNavigate();
+
   const handleEdit = async () => {
-    await handleAction(
-      async () => {
-        console.log('Edit clicked');
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      },
-      'edit project'
-    );
+    navigate('/create');
   };
 
   const handleDelete = async () => {
@@ -78,13 +75,10 @@ export function HomePage() {
 
   return (
     <div>
-      {/* Fixed header */}
-      <header className="fixed top-0 right-0 left-64 bg-white h-16 z-10">
-        <div className="h-full border-b border-gray-200 px-8 flex items-center justify-between">
-          <h1 className="text-xl font-semibold text-gray-900">Home</h1>
-          <UserMenu />
-        </div>
-      </header>
+      <PageHeader
+        title="Home"
+        breadcrumbItems={[{ label: "Home", href: "/" }]}
+      />
 
       {/* Main content with padding for header */}
       <div className="pt-16">
@@ -96,6 +90,7 @@ export function HomePage() {
               <SortDropdown />
               <div className="h-4 w-px bg-gray-200" />
               <CreateButton />
+              <div className="h-4 w-px bg-gray-200" />
             </div>
           </div>
 
