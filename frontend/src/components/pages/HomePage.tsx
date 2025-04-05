@@ -1,54 +1,117 @@
-import { HealthCheck } from '../HealthCheck';
+import { useState } from 'react';
+import { ProjectList } from '../projects/ProjectList';
+import { MOCK_PROJECTS } from '../../mock/projects';
+import { WorkspaceSelector } from '../header/WorkspaceSelector';
+import { CreateButton } from '../header/CreateButton';
+import { SortDropdown } from '../header/SortDropdown';
+import { UserMenu } from '../header/UserMenu';
 
 export function HomePage() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | undefined>(undefined);
+
+  const handleAction = async (
+    action: () => Promise<void>,
+    loadingMessage: string
+  ) => {
+    try {
+      setIsLoading(true);
+      setError(undefined);
+      await action();
+    } catch (err) {
+      setError(`Failed to ${loadingMessage}. Please try again.`);
+      console.error(`Error during ${loadingMessage}:`, err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEdit = async () => {
+    await handleAction(
+      async () => {
+        console.log('Edit clicked');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      },
+      'edit project'
+    );
+  };
+
+  const handleDelete = async () => {
+    await handleAction(
+      async () => {
+        console.log('Delete clicked');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      },
+      'delete project'
+    );
+  };
+
+  const handleDownload = async () => {
+    await handleAction(
+      async () => {
+        console.log('Download clicked');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      },
+      'download project'
+    );
+  };
+
+  const handleTranslate = async () => {
+    await handleAction(
+      async () => {
+        console.log('Translate clicked');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      },
+      'translate project'
+    );
+  };
+
+  const handlePlay = async () => {
+    await handleAction(
+      async () => {
+        console.log('Play clicked');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      },
+      'play project'
+    );
+  };
+
   return (
-    <div className="space-y-8">
-      <section className="bg-white shadow-sm rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">
-          Welcome to PPT-to-Video Converter
-        </h2>
-        <p className="text-gray-600">
-          Transform your PowerPoint presentations into engaging video content with AI-powered
-          narration.
-        </p>
-      </section>
-
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white shadow-sm rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Upload Presentation</h3>
-          <p className="text-gray-600">
-            Coming soon: Upload your PowerPoint files and convert them into professional videos.
-          </p>
+    <div>
+      {/* Fixed header */}
+      <header className="fixed top-0 right-0 left-64 bg-white h-16 z-10">
+        <div className="h-full border-b border-gray-200 px-8 flex items-center justify-between">
+          <h1 className="text-xl font-semibold text-gray-900">Home</h1>
+          <UserMenu />
         </div>
+      </header>
 
-        <div className="bg-white shadow-sm rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">AI Narration</h3>
-          <p className="text-gray-600">
-            Coming soon: Generate natural-sounding narration for your slides using advanced AI
-            technology.
-          </p>
+      {/* Main content with padding for header */}
+      <div className="pt-16">
+        <div className="px-8 pt-4 space-y-6">
+          {/* Sub Header with Workspace and Actions */}
+          <div className="flex items-center justify-between border-b border-gray-50 pb-4">
+            <WorkspaceSelector />
+            <div className="flex items-center gap-4">
+              <SortDropdown />
+              <div className="h-4 w-px bg-gray-200" />
+              <CreateButton />
+            </div>
+          </div>
+
+          {/* Project List */}
+          <ProjectList
+            projects={MOCK_PROJECTS}
+            isLoading={isLoading}
+            error={error}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+            onDownload={handleDownload}
+            onTranslate={handleTranslate}
+            onPlay={handlePlay}
+          />
         </div>
-
-        <div className="bg-white shadow-sm rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Video Export</h3>
-          <p className="text-gray-600">
-            Coming soon: Export your presentation as a professional video with synchronized
-            narration.
-          </p>
-        </div>
-
-        <div className="bg-white shadow-sm rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Translation Support</h3>
-          <p className="text-gray-600">
-            Coming soon: Translate your presentations into multiple languages automatically.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white shadow-sm rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">System Status</h3>
-        <HealthCheck />
-      </section>
+      </div>
     </div>
   );
 }
