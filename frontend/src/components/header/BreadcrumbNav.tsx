@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react"
 import { Link } from "react-router-dom"
+import { cn } from "@/lib/utils"
 
 interface BreadcrumbItem {
   label: string
@@ -8,11 +9,12 @@ interface BreadcrumbItem {
 
 interface BreadcrumbNavProps {
   items: BreadcrumbItem[]
+  className?: string
 }
 
-export const BreadcrumbNav = ({ items }: BreadcrumbNavProps) => {
+export const BreadcrumbNav = ({ items, className }: BreadcrumbNavProps) => {
   return (
-    <nav className="flex items-center space-x-1 text-sm">
+    <nav className={cn("flex items-center space-x-1 text-sm", className)}>
       {items.map((item, index) => (
         <div key={item.href} className="flex items-center">
           {index > 0 && (

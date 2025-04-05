@@ -1,4 +1,9 @@
-import { defineConfig, devices } from '@playwright/experimental-ct-react'
+import { defineConfig, devices } from '@playwright/experimental-ct-react';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default defineConfig({
   testDir: './src',
@@ -11,6 +16,13 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     ctPort: 3100,
+    ctViteConfig: {
+      resolve: {
+        alias: {
+          '@': resolve(__dirname, './src'),
+        },
+      },
+    },
   },
   projects: [
     {
@@ -23,4 +35,4 @@ export default defineConfig({
     port: 5173,
     reuseExistingServer: !process.env.CI,
   },
-})
+});

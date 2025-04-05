@@ -1,8 +1,9 @@
 ## In-Depth Description
 
 ### Functional Increment
-- Implement a **“Create New”** page accessible from a “Create new” button (either in the sidebar or header).
-- Divide the page into **three sections**:
+- Implement a **“Create New”** page accessible from a “Create new” button in the subheader.
+- The page has the same root layout structure as the home page
+- The main content area is divided into **three sections**:
   1. **Drop Zone**  
      - A UI area where the user can drag-and-drop PPT files (no actual backend upload yet).
   2. **Metadata Form**  
@@ -11,15 +12,17 @@
   3. **Slides List**  
      - A placeholder list on the right column showing mock slides (e.g., “Slide 1, Slide 2”).
      - Each slide item might display a placeholder title, description, or narration text.
+- This view is also displayed when the user clicks the "Edit" action in the video project card.
+- The breadcrumb navigation is updated when this view is active.
 
 ### Objects / Components
-1. **CreateNewPage** Component  
+1. **CreateNewVideo** Component  
    - Hosts the overall layout with a two-/three-column structure (depending on the design).
 2. **DropZone** Sub-Component  
    - Provides a visual area for drag-and-drop, using a library (if desired) or a custom approach.  
    - Currently, it only accepts a file but does not post it to the server.
 3. **MetadataForm** Sub-Component  
-   - Displays input fields for project metadata.  
+   - Displays input fields for project metadata: Name, description, tags.
    - Use a controlled form approach with React hooks (e.g., `useState`, `useReducer`, or form libraries).
 4. **SlidesList** Sub-Component  
    - Showcases placeholder slides.  
